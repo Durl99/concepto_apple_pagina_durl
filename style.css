@@ -1,0 +1,569 @@
+/* Variables para colores y fuentes (simulando los de Apple) */
+:root {
+    --apple-text-color: #1d1d1f;
+    --apple-light-text-color: #6e6e73;
+    --apple-link-color: #007aff;
+    --apple-background-light: #f5f5f7;
+    --apple-background-dark: #1e1e1e;
+    --apple-button-bg-primary: #007aff;
+    --apple-button-text-primary: #ffffff;
+    --apple-button-bg-secondary: transparent;
+    --apple-button-border-secondary: #007aff;
+    --apple-button-text-secondary: #007aff;
+    --header-height: 44px;
+}
+
+/* Restablecimiento básico */
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: var(--apple-text-color);
+    line-height: 1.6;
+    background-color: #ffffff; /* Fondo blanco para las secciones claras */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Tipografía general */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    margin-top: 0;
+    margin-bottom: 0.5em;
+    letter-spacing: -0.01em; /* Ligero ajuste para estética Apple */
+}
+
+h1 { font-size: 48px; line-height: 1.1; }
+h2 { font-size: 36px; line-height: 1.2; }
+h3 { font-size: 24px; line-height: 1.3; }
+p { font-size: 17px; margin-bottom: 1em; }
+
+a {
+    color: var(--apple-link-color);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+a:hover {
+    text-decoration: underline;
+}
+
+/* Botones */
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 999px; /* Para forma de píldora */
+    font-size: 17px;
+    font-weight: 400;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    white-space: nowrap;
+}
+
+.button-primary {
+    background-color: var(--apple-button-bg-primary);
+    color: var(--apple-button-text-primary);
+    border: 1px solid var(--apple-button-bg-primary);
+}
+.button-primary:hover {
+    background-color: #0066cc; /* Tono más oscuro al pasar el mouse */
+    border-color: #0066cc;
+}
+
+.button-secondary {
+    background-color: var(--apple-button-bg-secondary);
+    color: var(--apple-button-text-secondary);
+    border: 1px solid var(--apple-button-border-secondary);
+}
+.button-secondary:hover {
+    background-color: rgba(0, 122, 255, 0.1); /* Ligero fondo transparente al pasar el mouse */
+    text-decoration: none;
+}
+
+/* Header (Barra de Navegación) */
+.header {
+    background-color: rgba(255, 255, 255, 0.9); /* Ligeramente transparente */
+    backdrop-filter: saturate(180%) blur(20px); /* Efecto cristalino */
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(0,0,0,0.08); /* Borde sutil */
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1000px; /* Ancho típico de navegación de Apple */
+    margin: 0 auto;
+    padding: 0 20px;
+    height: var(--header-height);
+    font-size: 12px;
+}
+
+.nav-logo {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--apple-text-color);
+    text-decoration: none;
+    line-height: 1; /* Para alinear el logo de Apple */
+}
+
+.nav-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 25px; /* Espacio entre elementos del menú */
+}
+
+.nav-menu li a {
+    color: var(--apple-text-color);
+    text-decoration: none;
+    padding: 10px 0;
+    display: block;
+    opacity: 0.8; /* Ligera transparencia como Apple */
+}
+
+.nav-menu li a:hover {
+    opacity: 1;
+    text-decoration: none;
+}
+
+.nav-actions {
+    display: flex;
+    gap: 25px;
+}
+
+/* Iconos de búsqueda y bolsa (simulados con texto o SVG si los tuvieras) */
+.nav-icon {
+    font-size: 16px;
+    color: var(--apple-text-color);
+    opacity: 0.8;
+}
+.nav-icon:hover {
+    opacity: 1;
+}
+.search-icon::before { content: '🔍'; } /* Placeholder */
+.bag-icon::before { content: '👜'; } /* Placeholder */
+
+
+/* Secciones Principales */
+section {
+    padding: 60px 20px;
+    text-align: center;
+    overflow: hidden; /* Para contener imágenes que puedan sobresalir */
+    position: relative; /* Para posicionamiento de contenido */
+}
+
+/* Sección Hero (iPhone 15 Pro) */
+.hero-iphone-pro {
+    background-color: var(--apple-background-dark);
+    color: #ffffff;
+    padding-top: calc(var(--header-height) + 60px); /* Espacio para el header fijo */
+    padding-bottom: 0; /* Imagen suele ir al final de la sección */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 80vh; /* Altura mínima para que la sección sea prominente */
+    position: relative;
+}
+
+.hero-content {
+    max-width: 900px;
+    margin: 0 auto 40px;
+    z-index: 10;
+}
+
+.hero-iphone-pro .new-tag {
+    color: #f7a83d; /* Color amarillo/naranja de "Nuevo" */
+    font-size: 17px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.hero-iphone-pro h1 {
+    font-size: 72px;
+    line-height: 1.05;
+    margin-bottom: 10px;
+}
+
+.hero-iphone-pro h2 {
+    font-size: 40px;
+    line-height: 1.2;
+    font-weight: 400; /* Apple a veces usa fuentes más ligeras para el subtítulo */
+    margin-bottom: 30px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.hero-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.hero-image {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin-top: 50px; /* Espacio entre el texto y la imagen */
+    z-index: 5;
+    position: relative; /* Asegura que la imagen esté sobre el fondo */
+}
+
+/* Sección Secundaria (iPhone 15) */
+.secondary-iphone-15 {
+    background-color: var(--apple-background-light);
+    color: var(--apple-text-color);
+    padding-bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 70vh;
+}
+
+.secondary-content {
+    max-width: 900px;
+    margin: 0 auto 40px;
+    z-index: 10;
+}
+
+.secondary-iphone-15 h1 {
+    font-size: 64px;
+    line-height: 1.1;
+    margin-bottom: 10px;
+}
+
+.secondary-iphone-15 h2 {
+    font-size: 36px;
+    line-height: 1.2;
+    font-weight: 400;
+    margin-bottom: 30px;
+    color: var(--apple-light-text-color);
+}
+
+.secondary-image {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin-top: 50px;
+    z-index: 5;
+    position: relative;
+}
+
+/* Sección de Vista General de Características */
+.feature-overview-section {
+    background-color: #ffffff;
+    padding: 80px 20px;
+}
+
+.feature-overview-section h2 {
+    font-size: 48px;
+    margin-bottom: 50px;
+    color: var(--apple-text-color);
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.feature-item {
+    text-align: center;
+    background-color: #f0f0f0;
+    border-radius: 18px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; /* Alinear contenido arriba */
+    min-height: 400px; /* Altura mínima para consistencia */
+}
+
+.feature-item .feature-image {
+    max-width: 100%;
+    height: 200px; /* Altura fija para las imágenes de característica */
+    object-fit: contain; /* Asegura que la imagen quepa bien */
+    margin-bottom: 20px;
+}
+
+.feature-item h3 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.feature-item p {
+    font-size: 17px;
+    color: var(--apple-light-text-color);
+}
+
+/* Sección de Accesorios */
+.accessories-section {
+    background-color: var(--apple-background-light);
+    padding: 80px 20px 0; /* Padding inferior 0 para que la imagen se extienda */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.accessories-content {
+    max-width: 800px;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.accessories-section h2 {
+    font-size: 48px;
+    margin-bottom: 15px;
+}
+
+.accessories-section p {
+    font-size: 20px;
+    color: var(--apple-light-text-color);
+    margin-bottom: 30px;
+}
+
+.accessories-image {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin-top: 40px; /* Espacio antes de la imagen */
+}
+
+/* Sección de Noticias y Rumores */
+.news-rumors-section {
+    background-color: #ffffff;
+    padding: 80px 20px;
+}
+
+.news-rumors-header {
+    max-width: 800px;
+    margin: 0 auto 50px;
+    text-align: center;
+}
+
+.news-rumors-header h2 {
+    font-size: 48px;
+    margin-bottom: 15px;
+}
+
+.news-rumors-header p {
+    font-size: 20px;
+    color: var(--apple-light-text-color);
+}
+
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.news-card {
+    background-color: var(--apple-background-light);
+    border-radius: 12px;
+    overflow: hidden;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+}
+
+.news-card .news-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+}
+
+.news-card h3 {
+    font-size: 20px;
+    padding: 20px 20px 10px;
+    line-height: 1.3;
+}
+
+.news-card p {
+    font-size: 15px;
+    padding: 0 20px 15px;
+    color: var(--apple-light-text-color);
+    flex-grow: 1; /* Para empujar el enlace hacia abajo */
+}
+
+.news-card .read-more {
+    font-size: 15px;
+    padding: 0 20px 20px;
+    color: var(--apple-link-color);
+    font-weight: 600;
+    display: inline-block;
+}
+.news-card .read-more:hover {
+    text-decoration: underline;
+}
+
+/* Footer */
+.footer {
+    background-color: var(--apple-background-light);
+    padding: 40px 20px;
+    font-size: 12px;
+    color: var(--apple-light-text-color);
+}
+
+.footer-content-wrapper {
+    max-width: 1000px; /* Ancho de contenido similar al de Apple */
+    margin: 0 auto;
+}
+
+.footer-note {
+    border-bottom: 1px solid #d2d2d7;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+.footer-note p {
+    font-size: 12px;
+    line-height: 1.5;
+    margin-bottom: 5px;
+}
+
+.footer-links-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.footer-column h3 {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--apple-text-color);
+    margin-bottom: 10px;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-column ul li {
+    margin-bottom: 8px;
+}
+
+.footer-column ul li a {
+    color: var(--apple-light-text-color);
+    font-size: 12px;
+    text-decoration: none;
+}
+.footer-column ul li a:hover {
+    text-decoration: underline;
+}
+
+.footer-legal {
+    border-top: 1px solid #d2d2d7;
+    padding-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Para responsividad */
+}
+
+.footer-legal p {
+    font-size: 12px;
+    margin: 0;
+}
+
+.legal-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.legal-links li {
+    margin-right: 15px;
+    position: relative;
+}
+
+.legal-links li:not(:last-child)::after {
+    content: '|';
+    position: absolute;
+    right: -10px;
+    color: #d2d2d7;
+}
+
+.legal-links li a {
+    color: var(--apple-light-text-color);
+    font-size: 12px;
+    text-decoration: none;
+}
+.legal-links li a:hover {
+    text-decoration: underline;
+}
+
+.region-selector {
+    margin-left: auto; /* Para empujar a la derecha */
+}
+
+.region-selector a {
+    font-size: 12px;
+    color: var(--apple-link-color);
+    text-decoration: none;
+}
+
+/* Responsividad (simplificada para CodePen) */
+@media (max-width: 768px) {
+    h1 { font-size: 40px; }
+    h2 { font-size: 30px; }
+    .hero-iphone-pro h1 { font-size: 50px; }
+    .hero-iphone-pro h2 { font-size: 28px; }
+    .secondary-iphone-15 h1 { font-size: 44px; }
+    .secondary-iphone-15 h2 { font-size: 24px; }
+
+    .nav-menu {
+        display: none; /* Ocultar menú en móviles, se necesitaría un botón hamburguesa */
+    }
+    .nav-actions {
+        margin-left: auto; /* Empuja acciones a la derecha */
+    }
+
+    .hero-section, .secondary-section, .accessories-section {
+        padding: 40px 20px;
+    }
+
+    .hero-image, .secondary-image, .accessories-image {
+        margin-top: 30px;
+    }
+
+    .feature-grid, .news-grid {
+        grid-template-columns: 1fr; /* Una columna en pantallas pequeñas */
+    }
+
+    .footer-links-grid {
+        grid-template-columns: repeat(2, 1fr); /* Dos columnas en móviles */
+    }
+
+    .footer-legal {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    .footer-legal p {
+        width: 100%;
+        text-align: center;
+    }
+    .legal-links {
+        justify-content: center;
+        width: 100%;
+        margin-top: 10px;
+    }
+    .region-selector {
+        margin: 10px auto 0;
+    }
+}
